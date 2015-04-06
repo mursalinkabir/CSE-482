@@ -1,0 +1,115 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+body {
+	background-color: #060606;
+	color: #FCFBFB;
+	font-size: 0.75em;
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.page_container {
+	width: 960px;
+	margin-top: 20px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.gallery_source {
+}
+.gallery_top{
+	height: 20px;
+	/*background-image: url(../images/template/page_top.jpg);*/
+	background-repeat: no-repeat;
+}
+.gallery_content{
+	padding-top: 15px;
+	padding-bottom: 1px;
+	/*background-image: url(../images/template/page_tile.jpg);*/
+	background-repeat: repeat-y;
+	margin-left:6%;
+}
+
+.gallery_thumbnails {
+	width: 500px;
+	float: left;
+}
+.gallery_preview {
+	width: 375px;
+	height: 375px;
+	float: left;
+}
+.gallery_contact {
+	width: 477px;
+	height: 60px;
+	float: left;
+	padding-right: 23px;
+	margin-left: 40px;
+	text-align: right;
+}
+.gallery_caption {
+	width: 375px;
+	float: left;
+}
+.gallery_bottom {
+	height: 20px;
+	/*background-image: url(../images/template/page_bottom.jpg);*/
+	background-repeat: no-repeat;
+}
+.clear_both {
+	clear: both;
+	line-height: 1px;
+}
+.gallery_credit {
+	width: 425px;
+	float: left;
+	margin-bottom: 10px;
+	margin-left: 15px;
+}
+.gallery_type {
+	width: 500px;
+	float: left;
+	padding-top: 4px;
+	margin-left: 0px;
+	margin-bottom: 10px;
+	text-align: right;
+}
+h1 {
+	letter-spacing: 2px;
+	font-size: 1.75em;
+	color: rgba(245,244,244,1.00);
+	font-weight: normal;
+}
+h2 {
+	letter-spacing: 23px;
+	font-size: 1.25em;
+	color: rgba(223,213,213,1.00);
+	font-weight: normal;
+	text-transform: uppercase;
+}
+.gallery_thumbnails a {
+	display: block;
+	width: 75px;
+	height: 75px;
+	float: left;
+	border: 1px solid #D9CFD0;
+	margin-right: 23px;
+	margin-bottom: 23px;
+}
+.gallery_thumbnails a:hover {
+	border: 1px solid #F9F7F7;
+}
+.gallery_thumbnails a.selected {
+	border-color: #FBF7F7;
+}
+.gallery_preview a {
+	width: 375px;
+	height: 375px;
+	display: block;
+	border: 1px solid #999999;
+}
+.gallery_preview a:hover {
+	border-color: #FFFFFF;
+}
+.gallery_preload_area   {
+	display: none;
+}

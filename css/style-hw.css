@@ -1,0 +1,15 @@
+
+section header {
+  margin: 0 20px;
+}
+
+
+.portfolio-footer ul.pagination {
+  margin: 0 0 0 30px;
+  float: left;
+}
+
+
+#blog-main{
+	padding: 0 15px 20px 15px;
+}
