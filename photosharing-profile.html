@@ -246,84 +246,8 @@
 
 							</div>
 						</li>
-						<li>
-							<div class="team-member">
-
-								<div class="imgwrapper">
-									<img src="img/designer.png" alt="designer">
-									<div class="imgback"></div>
-
-								</div>
-
-								<div class="imgcaption">
-									<h1>Rokib Miah</h1>
-									<h2>Design Lead</h2>
-									<p>
-										An MIT graduate. Passionate about design and perfection.
-									</p>
-
-								</div>
-
-								<div class="row socialboxes-wrapper">
-
-									<div class="socialbox-holder">
-										<a href="#" class="fb"></a>
-									</div>
-
-									<div class="socialbox-holder">
-										<a href="#" class="tweet"></a>
-									</div>
-
-									<div class="socialbox-holder">
-										<a href="#" class="gplus"></a>
-									</div>
-
-									<div class="socialbox-holder">
-										<a href="#" class="lin"></a>
-									</div>
-								</div>
-
-							</div>
-						</li>
-						<li>
-							<div class="team-member">
-
-								<div class="imgwrapper">
-									<img src="img/developer.png" alt="developer">
-									<div class="imgback"></div>
-
-								</div>
-
-								<div class="imgcaption">
-									<h1>Devv Mehdee</h1>
-									<h2>Development Lead</h2>
-									<p>
-										An MIT graduate. Passionate about design and perfection.
-									</p>
-
-								</div>
-
-								<div class="row socialboxes-wrapper">
-
-									<div class="socialbox-holder">
-										<a href="#" class="fb"></a>
-									</div>
-
-									<div class="socialbox-holder">
-										<a href="#" class="tweet"></a>
-									</div>
-
-									<div class="socialbox-holder">
-										<a href="#" class="gplus"></a>
-									</div>
-
-									<div class="socialbox-holder">
-										<a href="#" class="lin"></a>
-									</div>
-								</div>
-
-							</div>
-						</li>
+						
+						
 
 					</ul>
 
@@ -558,6 +482,9 @@
 	<script type="text/javascript" src="js/slider/raphael-min.js"></script>
 	<script type="text/javascript" src="js/slider/jquery.easing.js"></script>
 
+	<!-- Handles Team Members hover effect -->
+	<script src="js/portfolio-adjust.js"></script>
+
 
 	<!-- Top Navigation transparency on scroll -->
 	<script src="js/transnav.js"></script>
@@ -604,9 +531,17 @@
 
 				});
 
-
+				// dynamically adjust the height of the Team Members hover effect
+				adjustTeamHover(20);
 				// Top nav transparency on Scroll 
 				transNav('#poshnav-half-width');
+
+			});
+
+		$(window).resize(function() {
+
+				// dynamically adjust the height of the Team Members hover effect
+				adjustTeamHover(20);
 
 			});
 
