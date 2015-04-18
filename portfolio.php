@@ -79,42 +79,94 @@
 
                 <ul class="nav navbar-nav">
 
-                  <li class="active" >
-                    <a href="#">Home</a>
+                  <li>
+                    <a href="photosharing-home.php">Home</a>
                   </li>
                   <li>
-                    <a href="#">About</a>
+                    <a href="index.html">View Job Offers</a>
                   </li>
                   <li>
-                    <a href="#">Contact</a>
+                    <a href="index-nivo.html">View Icon Updates</a>
+                  </li>
+                  
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="portfolio.html" class="dropdown-toggle" data-toggle="dropdown">Portfolio</a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="portfolio-4c.php">View Portfolio</a>
                   </li>
                   <li>
-                    <a href="#">Features</a>
+                    <a href="portfolio.html">Modify Portfolio</a>
                   </li>
                   <li>
-                    <a href="#">Contact</a>
+                    <a href="portfolio-2c.html">Publish Portfolio</a>
                   </li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown </a>
-                    <ul class="dropdown-menu">
-                      <li>
-                        <a href="#">Menu Item</a>
-                      </li>
-                      <li>
-                        <a href="#">Menu Item</a>
-                      </li>
-                      <li>
-                        <a href="#">Menu Item</a>
-                      </li>
 
-                      <li>
-                        <a href="#">Menu Item</a>
-                      </li>
-                      <li>
-                        <a href="#">Menu Item</a>
-                      </li>
-                    </ul>
+                  <li>
+                    <a href="portfolio-single.html">Single Portfolio</a>
                   </li>
+
+                </ul>
+              </li>
+
+              <li class="dropdown">
+                <a href="blog.html" class="dropdown-toggle" data-toggle="dropdown">Profile</a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="photosharing-profile.php">View Profile</a>
+                  </li>
+                  <li>
+                    <a href="photosharing-profile.php">Modify Profile</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pictures</a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="photosharing-qupload.php">Quick Upload</a>
+                  </li>
+                  <li>
+                    <a href="photosharing-albumUpload.php">Album Upload</a>
+                  </li>
+                  <li>
+                    <a href="gallery-implementation.php">Gallery</a>
+                  </li>
+                </ul>
+              </li>
+
+
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact</a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="contact.html">View Contact List</a>
+                  </li>
+                  <li>
+                    <a href="about.html">Modify Contact List</a>
+                  </li> 
+                </ul>
+              </li>
+
+
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Messages</a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="components.html">Inbox</a>
+                  </li>
+                  <li>
+                    <a href="icons.html">Outbox</a>
+                  </li>
+                  <li>
+                    <a href="anims.html">Compose Message</a>
+                  </li>
+
+                </ul>
+              </li>
                 </ul>
 
                 <form class="navbar-search pull-right" role="search">

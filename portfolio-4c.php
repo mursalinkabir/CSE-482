@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,92 +111,90 @@
                 <a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Home</a>
                 <ul class="dropdown-menu animated fadeInDown animated-300ms">
 
-                  <li>
-                    <a href="index.html">iView Slider</a>
+                 <li>
+                    <a href="photosharing-home.php">Home</a>
                   </li>
                   <li>
-                    <a href="index-nivo.html">Nivo Slider</a>
+                    <a href="index.html">View Job Offers</a>
                   </li>
-
                   <li>
-                    <a href="index-camera.html">Camera Slider</a>
+                    <a href="index-nivo.html">View Icon Updates</a>
                   </li>
+                  
                 </ul>
               </li>
-              <li class="dropdown active">
+              <li class="dropdown">
                 <a href="portfolio.html" class="dropdown-toggle" data-toggle="dropdown">Portfolio</a>
-                <ul class="dropdown-menu  animated fadeInDown animated-300ms">
+                <ul class="dropdown-menu">
                   <li>
-                    <a href="portfolio-4c.html">4 Column</a>
+                    <a href="portfolio-4c.php">View Portfolio</a>
                   </li>
                   <li>
-                    <a href="portfolio.html">3 Column</a>
+                    <a href="portfolio-4c.php">Modify Portfolio</a>
                   </li>
                   <li>
-                    <a href="portfolio-2c.html">2 Column</a>
+                    <a href="portfolio-4c.php">Publish Portfolio</a>
                   </li>
 
                   <li>
-                    <a href="portfolio-single.html">Single Portfolio</a>
+                    <a href="portfolio-4c.php">Single Portfolio</a>
                   </li>
 
                 </ul>
               </li>
 
               <li class="dropdown">
-                <a href="blog.html" class="dropdown-toggle" data-toggle="dropdown">Blog</a>
-                <ul class="dropdown-menu  animated fadeInDown animated-300ms">
+                <a href="blog.html" class="dropdown-toggle" data-toggle="dropdown">Profile</a>
+                <ul class="dropdown-menu">
                   <li>
-                    <a href="blog-ls.html">Left Sidebar</a>
+                    <a href="photosharing-profile.php">View Profile</a>
                   </li>
                   <li>
-                    <a href="blog.html">Right Sidebar</a>
+                    <a href="photosharing-profile.php">Modify Profile</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pictures</a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="photosharing-qupload.php">Quick Upload</a>
                   </li>
                   <li>
-                    <a href="blog-single.html">Single Blog</a>
+                    <a href="photosharing-albumUpload.php">Album Upload</a>
                   </li>
-
-
-
+                  <li>
+                    <a href="gallery-implementation.php">Gallery</a>
+                  </li>
                 </ul>
               </li>
 
 
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages</a>
-                <ul class="dropdown-menu  animated fadeInDown animated-300ms">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact</a>
+                <ul class="dropdown-menu">
                   <li>
-                    <a href="contact.html">Contact</a>
+                    <a href="contact.html">View Contact List</a>
                   </li>
                   <li>
-                    <a href="about.html">About</a>
-                  </li>
-
-                  <li>
-                    <a href="services.html">Services</a>
-                  </li>
-
-                  <li>
-                    <a href="page404.html">404</a>
-                  </li>
-
-
-
+                    <a href="about.html">Modify Contact List</a>
+                  </li> 
                 </ul>
               </li>
 
 
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Elements</a>
-                <ul class="dropdown-menu  animated fadeInDown animated-300ms">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Messages</a>
+                <ul class="dropdown-menu">
                   <li>
-                    <a href="components.html">Components</a>
+                    <a href="components.html">Inbox</a>
                   </li>
                   <li>
-                    <a href="icons.html">Icons</a>
+                    <a href="icons.html">Outbox</a>
                   </li>
                   <li>
-                    <a href="anims.html">Animations</a>
+                    <a href="anims.html">Compose Message</a>
                   </li>
 
                 </ul>
@@ -221,7 +223,12 @@
         <img src="img/portfolio-banner.png" alt='Portfolio Banner'>
 
         <header>
-          <h1>Our Works Speak For Us</h1>
+          
+          <?php
+            echo "<h1>".$_SESSION["userName"]."'s Portfolio"."</h1>";
+          ?>
+
+          <h2>My Work Will Speak For Me</h2>
         </header>
         <div class="about-banner">
           <p>

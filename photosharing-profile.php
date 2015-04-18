@@ -95,34 +95,33 @@
 							<li class="dropdown">
 								<a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Home</a>
 								<ul class="dropdown-menu">
-
+									<li>
+										<a href="photosharing-home.php">Home</a>
+									</li>
 									<li>
 										<a href="index.html">View Job Offers</a>
 									</li>
 									<li>
 										<a href="index-nivo.html">View Icon Updates</a>
 									</li>
-
-									<li>
-										<a href="index-camera.html">Camera Slider</a>
-									</li>
+									
 								</ul>
 							</li>
 							<li class="dropdown">
 								<a href="portfolio.html" class="dropdown-toggle" data-toggle="dropdown">Portfolio</a>
 								<ul class="dropdown-menu">
 									<li>
-										<a href="portfolio-4c.html">View Portfolio</a>
+										<a href="portfolio-4c.php">View Portfolio</a>
 									</li>
 									<li>
-										<a href="portfolio.html">Modify Portfolio</a>
+										<a href="portfolio-4c.php">Modify Portfolio</a>
 									</li>
 									<li>
-										<a href="portfolio-2c.html">Publish Portfolio</a>
+										<a href="portfolio-4c.php">Publish Portfolio</a>
 									</li>
 
 									<li>
-										<a href="portfolio-single.html">Single Portfolio</a>
+										<a href="portfolio-4c.php">Single Portfolio</a>
 									</li>
 
 								</ul>
@@ -132,23 +131,26 @@
 								<a href="blog.html" class="dropdown-toggle" data-toggle="dropdown">Profile</a>
 								<ul class="dropdown-menu">
 									<li>
-										<a href="blog-ls.html">View Profile</a>
+										<a href="photosharing-profile.php">View Profile</a>
 									</li>
 									<li>
-										<a href="blog.html">Modify Profile</a>
+										<a href="photosharing-profile.php">Modify Profile</a>
 									</li>
 								</ul>
 							</li>
 
 							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Upload Pictures</a>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Pictures</a>
 								<ul class="dropdown-menu">
 									<li>
-										<a href="contact.html">Quick Upload</a>
+										<a href="photosharing-qupload.php">Quick Upload</a>
 									</li>
 									<li>
-										<a href="about.html">Album Upload</a>
-									</li>	
+										<a href="photosharing-albumUpload.php">Album Upload</a>
+									</li>
+									<li>
+										<a href="gallery-implementation.php">Gallery</a>
+									</li>
 								</ul>
 							</li>
 
@@ -187,6 +189,7 @@
 							<input type="text" class="search-query" placeholder="Search For User">
 						</form>
 
+
 					</div>
 
 				</div>
@@ -217,7 +220,11 @@
 								</div>
 
 								<div class="imgcaption">
-									<h1>Mursa Smith</h1>
+									<?php
+
+										echo "<h1>".$_SESSION["userName"]."</h1>"
+									?>
+									
 									<h2>CEO</h2>
 									<p>
 										An MIT graduate. Passionate about design and perfection.
@@ -272,22 +279,6 @@
 			</div>
 				</div>
 			</section>
-			
-
-   
-          
-       
-         
-        
-        
-          
-         
-           
-
-
-
-
-
 
 			<!-- Main Footer Begin =====================================================================================-->
 			<footer>

@@ -69,6 +69,9 @@
   <body>
 
   	<?php
+
+  	if($_SERVER['REQUEST_METHOD']=='POST')
+  	{
 			// checking login credentials
 
 			$userEmail = $_POST["userEmail"];
@@ -109,6 +112,7 @@
 				$_SESSION["userId"] = $row['userId'];
 				$_SESSION["loginStat"]="loggedIn";
 				$_SESSION["userEmail"]=$userEmail;
+				$_SESSION["userName"]=$user;
 
 				
 			}
@@ -120,7 +124,7 @@
 				die("Password didn\'t match. I'm dying!!!!");
 
 			}
-
+	}
 		?>
 
 
@@ -148,7 +152,9 @@
 							<li class="dropdown">
 								<a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Home</a>
 								<ul class="dropdown-menu">
-
+									<li>
+										<a href="photosharing-home.php">Home</a>
+									</li>
 									<li>
 										<a href="index.html">View Job Offers</a>
 									</li>
@@ -162,17 +168,17 @@
 								<a href="portfolio.html" class="dropdown-toggle" data-toggle="dropdown">Portfolio</a>
 								<ul class="dropdown-menu">
 									<li>
-										<a href="portfolio-4c.html">View Portfolio</a>
+										<a href="portfolio-4c.php">View Portfolio</a>
 									</li>
 									<li>
-										<a href="portfolio.html">Modify Portfolio</a>
+										<a href="portfolio-4c.php">Modify Portfolio</a>
 									</li>
 									<li>
-										<a href="portfolio-2c.html">Publish Portfolio</a>
+										<a href="portfolio-4c.php">Publish Portfolio</a>
 									</li>
 
 									<li>
-										<a href="portfolio-single.html">Single Portfolio</a>
+										<a href="portfolio-4c.php">Single Portfolio</a>
 									</li>
 
 								</ul>
@@ -182,10 +188,10 @@
 								<a href="blog.html" class="dropdown-toggle" data-toggle="dropdown">Profile</a>
 								<ul class="dropdown-menu">
 									<li>
-										<a href="blog-ls.html">View Profile</a>
+										<a href="photosharing-profile.php">View Profile</a>
 									</li>
 									<li>
-										<a href="blog.html">Modify Profile</a>
+										<a href="photosharing-profile.php">Modify Profile</a>
 									</li>
 								</ul>
 							</li>
@@ -256,7 +262,7 @@
        
          <?php
 
-         	echo "<h1> <b class=\"emph\">Welcome " .$user."</b></h1>";
+         	echo "<h1> <b class=\"emph\">Welcome " .$_SESSION["userName"]."</b></h1>";
 
          ?>
         
