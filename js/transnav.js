@@ -3,12 +3,18 @@
 
 function transNav(navElement){
 
+		var color_band = $(navElement).find(".color-band-thick");
+
 		$(window).scroll(function(){
 			var scrollTop = $(window).scrollTop();
-			if(scrollTop != 0)
+			if(scrollTop != 0){
 				$(navElement).stop().animate({'opacity':'0.9'},400);
-			else	
+				color_band.stop().animate({'height': '0'}, 400);
+			}
+			else{
 				$(navElement).stop().animate({'opacity':'1'},400);
+				color_band.stop().animate({'height': '11px'}, 400);
+			}	
 		});
 
 		$(navElement).hover(

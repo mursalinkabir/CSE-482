@@ -47,7 +47,7 @@
 				var slide = $(this);
 
 				//Find images & thumbnails
-				iv.defs.images.push(slide.data("iview:image"));
+				iv.defs.images.push(slide.data("iview-image"));
 				if (slide.data("iview:thumbnail")) iv.defs.images.push(slide.data("iview:thumbnail"));
 				slide.css('display', 'none');
 
@@ -104,10 +104,10 @@
 			iv.defs.image = iv.slides.eq(iv.defs.slide);
 
 			//Set pauseTime
-			iv.defs.time = (iv.defs.image.data('iview:pausetime')) ? iv.defs.image.data('iview:pausetime') : options.pauseTime;
+			iv.defs.time = (iv.defs.image.data('iview-pausetime')) ? iv.defs.image.data('iview-pausetime') : options.pauseTime;
 
 			//Set easing
-			iv.defs.easing = (iv.defs.image.data('iview:easing')) ? iv.defs.image.data('iview:easing') : options.easing;
+			iv.defs.easing = (iv.defs.image.data('iview-easing')) ? iv.defs.image.data('iview-easing') : options.easing;
 
 			iv.pieDegree = 0;
 			var padding = options.timerPadding,
@@ -309,7 +309,7 @@
 				if (iv.defs.lock || iv.defs.slide == slide) return false;
 				if ($(this).hasClass('active')) return false;
 				iv.cleanTimer();
-				iv.slider.css('background', 'url("' + iv.defs.image.data('iview:image') + '") no-repeat');
+				iv.slider.css('background', 'url("' + iv.defs.image.data('iview-image') + '") no-repeat');
 				iv.defs.slide = slide - 1;
 				iv.goTo('control');
 			});
@@ -381,7 +381,7 @@
 			var iv = this;
 			
 			var img = new Image();
-			img.src = iv.slides.eq(0).data('iview:image');
+			img.src = iv.slides.eq(0).data('iview-image');
 			imgWidth = img.width;
 			if(imgWidth != iv.defs.width){
 				iv.defs.width = imgWidth;
@@ -394,7 +394,7 @@
 			iv.slides.eq(iv.defs.slide).css('display', 'block');
 
 			//Set first background
-			iv.slider.css('background', 'url("' + iv.defs.image.data('iview:image') + '") no-repeat');
+			iv.slider.css('background', 'url("' + iv.defs.image.data('iview-image') + '") no-repeat');
 
 			//Set initial caption
 			iv.setCaption(iv.options);
@@ -448,10 +448,10 @@
 					var slide = iv.slides.eq(i);
 					iviewControl += '<li>';
 					if (iv.options.controlNavThumbs) {
-						var thumb = (slide.data('iview:thumbnail')) ? slide.data('iview:thumbnail') : slide.data('iview:image');
+						var thumb = (slide.data('iview-thumbnail')) ? slide.data('iview-thumbnail') : slide.data('iview-image');
 						iviewControl += '<a class="iview-control" rel="' + i + '"><img src="' + thumb + '" /></a>';
 					} else {
-						var thumb = (slide.data('iview:thumbnail')) ? slide.data('iview:thumbnail') : slide.data('iview:image');
+						var thumb = (slide.data('iview-thumbnail')) ? slide.data('iview-thumbnail') : slide.data('iview-image');
 						iviewControl += '<a class="iview-control" rel="' + i + '">' + (i + 1) + '</a>';
 						if (iv.options.controlNavTooltip) iviewTooltip += '<div rel="' + i + '"><img src="' + thumb + '" /></div>';
 					}
@@ -485,7 +485,7 @@
 					if (iv.defs.lock) return false;
 					if ($(this).hasClass('active')) return false;
 					iv.cleanTimer();
-					iv.slider.css('background', 'url("' + iv.defs.image.data('iview:image') + '") no-repeat');
+					iv.slider.css('background', 'url("' + iv.defs.image.data('iview-image') + '") no-repeat');
 					iv.defs.slide = $(this).attr('rel') - 1;
 					iv.goTo('control');
 				});
@@ -743,13 +743,13 @@
 			//Diplay the current slide
 			iv.slides.eq(iv.defs.slide).show();
 
-			iv.slider.css('background', 'url("' + iv.defs.image.data('iview:image') + '") no-repeat');
+			iv.slider.css('background', 'url("' + iv.defs.image.data('iview-image') + '") no-repeat');
 
 			// Remove any strips and blocks from last transition
 			$('.iview-strip, .iview-block', iv.slider).remove();
 
 			//Set slide pauseTime
-			iv.defs.time = (iv.defs.image.data('iview:pausetime')) ? iv.defs.image.data('iview:pausetime') : iv.options.pauseTime;
+			iv.defs.time = (iv.defs.image.data('iview-pausetime')) ? iv.defs.image.data('iview-pausetime') : iv.options.pauseTime;
 
 			//Process timer
 			iv.iviewTimer.animate({
@@ -792,7 +792,7 @@
 					height: height,
 					top: top,
 					left: left,
-					background: 'url("' + iv.defs.image.data('iview:image') + '") no-repeat ' + bgPosition,
+					background: 'url("' + iv.defs.image.data('iview-image') + '") no-repeat ' + bgPosition,
 					opacity: 0
 				});
 
@@ -821,7 +821,7 @@
 						height: blockHeight + 'px',
 						top: (rows * blockHeight) + 'px',
 						left: (columns * blockWidth) + 'px',
-						background: 'url("' + iv.defs.image.data('iview:image') + '") no-repeat ' + bgPosition,
+						background: 'url("' + iv.defs.image.data('iview-image') + '") no-repeat ' + bgPosition,
 						opacity: 0
 					});
 					
@@ -1348,10 +1348,10 @@
 
 			//Set current background before change
 			if (!action) {
-				iv.slider.css('background', 'url("' + iv.defs.image.data('iview:image') + '") no-repeat');
+				iv.slider.css('background', 'url("' + iv.defs.image.data('iview-image') + '") no-repeat');
 			} else {
 				if (action == 'prev' || action == 'next') {
-					iv.slider.css('background', 'url("' + iv.defs.image.data('iview:image') + '") no-repeat');
+					iv.slider.css('background', 'url("' + iv.defs.image.data('iview-image') + '") no-repeat');
 				}
 			}
 			iv.defs.slide++;
@@ -1390,15 +1390,15 @@
 				fx = $.trim(fx.toLowerCase());
 			}
 
-			//Custom transition as defined by "data-iview:transition" attribute
-			if (iv.defs.image.data('iview:transition')) {
-				var transitions = iv.defs.image.data('iview:transition').split(',');
+			//Custom transition as defined by "data-iview-transition" attribute
+			if (iv.defs.image.data('iview-transition')) {
+				var transitions = iv.defs.image.data('iview-transition').split(',');
 				fx = transitions[Math.floor(Math.random() * (transitions.length))];
 				fx = $.trim(fx.toLowerCase());
 			}
 
 			//Set slide easing
-			iv.defs.easing = (iv.defs.image.data('iview:easing')) ? iv.defs.image.data('iview:easing') : iv.options.easing;
+			iv.defs.easing = (iv.defs.image.data('iview-easing')) ? iv.defs.image.data('iview-easing') : iv.options.easing;
 
 			//Start Transition
 			iv.defs.lock = true;
