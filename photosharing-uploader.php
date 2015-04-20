@@ -1,7 +1,3 @@
-<?php
-	session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,7 +66,7 @@
 </head>
 
   <body>
-  	
+
 
 	<div class="whole-wrapper">
 		
@@ -79,114 +75,6 @@
 
 
 			<!-- Top Navigation Begin ==================================================================================-->
-
-			<div id="poshnav-half-width">
-				<div class="navbar navbar-inverse" >
-
-					<div class="navbar-header">
-
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-
-						<a class="navbar-brand" href="index.html"><img src="img/logo-nav.png" alt="Nav Logo"></a>
-
-					</div>	
-					<div class="collapse navbar-collapse">
-
-						<ul class="nav navbar-nav">
-
-							<li class="dropdown">
-								<a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Home</a>
-								<ul class="dropdown-menu">
-									<li>
-										<a href="photosharing-home.php">Home</a>
-									</li>
-									<li>
-										<a href="index.html">View Job Offers</a>
-									</li>
-									<li>
-										<a href="index-nivo.html">View Icon Updates</a>
-									</li>
-									
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a href="photosharing-portfolio.php" class="dropdown-toggle" data-toggle="dropdown">Portfolio</a>
-								<ul class="dropdown-menu">
-									<li>
-										<a href="photosharing-portfolio.php">View Portfolio</a>
-									</li>
-									<li>
-										<a href="photosharing-portfolio.php">Modify Portfolio</a>
-									</li>									
-								</ul>
-							</li>
-
-							<li class="dropdown">
-								<a href="blog.html" class="dropdown-toggle" data-toggle="dropdown">Profile</a>
-								<ul class="dropdown-menu">
-									<li>
-										<a href="photosharing-profile.php">View Profile</a>
-									</li>
-									<li>
-										<a href="photosharing-profile.php">Modify Profile</a>
-									</li>
-								</ul>
-							</li>
-
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Pictures</a>
-								<ul class="dropdown-menu">
-									<li>
-										<a href="photosharing-uploader.php">Quick Upload</a>
-									</li>
-									<li>
-										<a href="photosharing-albumUpload.php">Album Management</a>
-									</li>
-									<li>
-										<a href="gallery-implementation.php">Gallery</a>
-									</li>
-								</ul>
-							</li>
-
-
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Contact</a>
-								<ul class="dropdown-menu">
-									<li>
-										<a href="contact.html">View Contact List</a>
-									</li>
-									<li>
-										<a href="about.html">Modify Contact List</a>
-									</li>	
-								</ul>
-							</li>
-
-
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Messages</a>
-								<ul class="dropdown-menu">
-									<li>
-										<a href="components.html">Inbox</a>
-									</li>
-									<li>
-										<a href="icons.html">Outbox</a>
-									</li>
-									<li>
-										<a href="anims.html">Compose Message</a>
-									</li>
-
-								</ul>
-							</li>
-						</ul>
-
-						<form class="navbar-search pull-right" role="search">
-							<input type="text" class="search-query" placeholder="Search For User">
-						</form>
-
-					</div>
-
-				</div>
-			</div>
 			
 			<!-- Top Navigation End ====================================================================================-->
 
@@ -195,71 +83,6 @@
 
 
       <section id='contact-main'>
-
-      	<?php
-
-      		if($_SERVER['REQUEST_METHOD']=='POST')
-  			{
-  				$ds = DIRECTORY_SEPARATOR;  //1
- 
-				$storeFolder = 'userUploads';   //2
- 
-				if (!empty($_FILES)) 
-				{
-     
-    				$tempFile = $_FILES['file']['tmp_name'];          //3             
-      
-    				$targetPath = dirname( __FILE__ ) . $ds. $storeFolder . $ds;  //4
-
-    				$time = time();
-     
-    				$targetFile =  $targetPath.$time.$_SESSION['userId'].$_FILES['file']['name'];  //5
- 
-    				
-
-    				// Save the uploaded image name and file path in a DB table
-
-    				$userId = $_SESSION["userId"];
-    				$imagePath = time().$_SESSION['userId'].$_FILES['file']['name'];//$targetFile;
-    				$date = "".date("h:i:s a, d/m/Y");
-
-    				// connecting to database
-
-    				$server = "localhost";
-					$username = "root";
-					$pass = "";
-					$db = "cse482project";
-
-					$conn = new mysqli($server,$username,$pass,$db);
-
-					if(!$conn)
-					{
-						die("Connection to Database Failed!!!"."<br>");
-					}
-
-					$sqlCmd = "INSERT INTO uploadedimage (userId,imagePath,uploadDate) VALUES ('$userId','$imagePath','$date')";
-
-					if($conn->query($sqlCmd)===true)
-					{
-						$_SESSION['lastUpload'] = true;
-						echo "<h1>image insertion successful</h1>";
-						
-					}
-
-					else
-					{
-						$_SESSION['lastUpload'] = false;
-						echo "<h1>image insertion unsuccessful</h1>";
-
-					}    
-
-					move_uploaded_file($tempFile,$targetFile); //6				
-  			
-  				}
-
-  			}
-
-      	?>
           
        
          
@@ -269,16 +92,23 @@
          <div class="row">
           <div class="">
           <div class="col-md-12">
-
-
-                <h3>UPLOAD IMAGE</h3>
-              <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"
+           
+                <h3>UPLOAD FUll Version IMAGE</h3>
+              <form action="upload.php"
 			      class="dropzone"
+<<<<<<< HEAD
 			      id="my-awesome-dropzone">				
 			      <input type="submit" id="clickToUpload" value="clickToUpload">
 			  </form>			  
 			
 			  <!--
+=======
+			      id="my-awesome-dropzone">
+
+					
+			  </form>
+			  
+>>>>>>> origin/master
 			  <h3>UPLOAD Preview Version IMAGE</h3>
               <form action="upload-prev.php"
 			      class="dropzone"
@@ -295,7 +125,7 @@
 					
 			  </form>
 			  
-              -->
+              
 
             </div>
 
@@ -304,6 +134,24 @@
           
            </div>
         </section>
+
+
+        
+
+
+        
+
+
+
+
+
+
+
+      
+
+
+
+
 
 
 			<!-- Main Footer Begin =====================================================================================-->
