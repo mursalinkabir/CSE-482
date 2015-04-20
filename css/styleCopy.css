@@ -2924,3 +2924,36 @@
         .panel p {
             font-size: 11px
         }
+
+.message-left-box{
+    margin-top: 21px;
+font-size: 2.0em;
+line-height: 1.5em;
+color: gray;
+
+
+}
+.message-left-text{
+
+    margin-left: 31%;
+}
+.message-right-box li{
+    margin-bottom: 15px;
+}
+.massage-format img{
+    float: left;
+    margin-right: 5px;
+}
+.massage-format .msg-title{
+    color: #0077B5;
+}
+
+.massage-format .msg-body{
+color: #000;
+
+line-height: 2.5em;
+}
+.massage-format .msg-sender{
+    color: #000;
+    font-weight: bold;
+}
