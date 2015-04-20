@@ -126,7 +126,7 @@
 										<a href="photosharing-profile.php">View Profile</a>
 									</li>
 									<li>
-										<a href="photosharing-profile.php">Modify Profile</a>
+										<a href="photosharing-modifyProfile.php">Modify Profile</a>
 									</li>
 								</ul>
 							</li>
@@ -205,7 +205,56 @@
 							<div class="team-member">
 
 								<div class="imgwrapper">
-									<img src="img/manager.png" alt="manager">
+									 <!--<img src="img/manager.png" alt="manager"> -->
+
+									<?php
+
+										$server = "localhost";
+										$username = "root";
+										$pass = "";
+										$db = "cse482project";
+
+										$conn = new mysqli($server,$username,$pass,$db);
+
+										$userId = $_SESSION['userId'];
+
+										$imageSrc = null;
+
+										$sqlQuery = "SELECT * FROM userprofile WHERE userId='$userId'";
+
+										$result = $conn->query($sqlQuery);	
+
+										$camera = null;
+										$contact = null;	
+
+										// Extracting associative arrays from result
+										$row = $result->fetch_array(MYSQLI_ASSOC);
+
+										if(count($row)!=0)
+										{
+											//$imageSrc = str_replace('/', '\\',$row['profilePic'] );
+											$imageSrc = $row['profilePic'] ;
+											$camera = $row['camera'] ;
+											$contact = $row['contact'] ;
+											//echo "<h1>Image Source : ".$imageSrc."</h1>";											
+
+										}
+
+										if(!$imageSrc)
+										{
+
+											echo "<img src=\"img/manager.png\" alt=\"manager\">";
+										}
+
+										else
+										{
+											echo "<img src=\"$imageSrc\" alt=\"no image found\">";
+
+										}						
+
+
+									?>
+
 									<div class="imgback"></div>
 
 								</div>
@@ -216,10 +265,10 @@
 										echo "<h1>".$_SESSION["userName"]."</h1>"
 									?>
 									
-									<h2>CEO</h2>
+									<!--<h2>CEO</h2>
 									<p>
 										An MIT graduate. Passionate about design and perfection.
-									</p>
+									</p> -->
 
 								</div>
 
@@ -249,6 +298,8 @@
 
 					</ul>
 
+					
+
 				</div>
 
 			<div class="col-md-6 ">
@@ -258,8 +309,30 @@
 				
 				<li class="glyphicon glyphicon-home">  Profession: <span class="user-profession ">PhotoGrapher </span></li>
 				<li class="glyphicon glyphicon-info-sign"> Age: <span class="user-age ">24 </span></li>
-				<li class="glyphicon glyphicon-camera">  Cam: <span class="user-cam ">Nikon D60 </span></li>
-				<li class="glyphicon glyphicon-phone">  Phone: <span class="user-phone ">8801674905511 </span></li>
+				
+				
+
+				<?php
+
+					if(($camera!=null)&&($contact!=null))
+					{
+						echo "<li class=\"glyphicon glyphicon-camera\">  Cam: <span class=\"user-cam \">$camera </span></li>";
+						echo "<li class=\"glyphicon glyphicon-phone\">  Phone: <span class=\"user-phone \">$contact </span></li>";
+
+					}
+
+					else
+					{
+
+						echo "<li class=\"glyphicon glyphicon-camera\">  Cam: <span class=\"user-cam \">No Camera Information Found </span></li>";
+						echo "<li class=\"glyphicon glyphicon-phone\">  Phone: <span class=\"user-phone \">No Contact Found</span></li>";
+
+					}
+
+
+
+
+				?>
 
 				
 			</ul>

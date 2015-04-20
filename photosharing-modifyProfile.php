@@ -200,29 +200,35 @@
 
       		if($_SERVER['REQUEST_METHOD']=='POST')
   			{
+
+  				$camera = $_POST['camera'];
+  				$contact = $_POST['contact'];
+
+
+  				// getting the profile picture
+
   				$ds = DIRECTORY_SEPARATOR;  //1
  
-				$storeFolder = 'userUploads';   //2
+				$storeFolder = 'profilePics';   //2
  
 				if (!empty($_FILES)) 
 				{
      
-    				$tempFile = $_FILES['file']['tmp_name'];          //3             
+    				$tempFile = $_FILES['profilePicture']['tmp_name'];          //3             
       
     				$targetPath = dirname( __FILE__ ) . $ds. $storeFolder . $ds;  //4
 
     				$time = time();
      
-    				$targetFile =  $targetPath.$time.$_SESSION['userId'].$_FILES['file']['name'];  //5
+    				$targetFile =  $targetPath.$time.$_SESSION['userId'].$_FILES['profilePicture']['name'];  //5
  
     				
 
     				// Save the uploaded image name and file path in a DB table
 
     				$userId = $_SESSION["userId"];
-    				$imagePath = time().$_SESSION['userId'].$_FILES['file']['name'];//$targetFile;
-    				$date = "".date("h:i:s a, d/m/Y");
-
+    				$profilePic = "profilePics/".$time.$_SESSION['userId'].$_FILES['profilePicture']['name'];//$targetFile;
+    				
     				// connecting to database
 
     				$server = "localhost";
@@ -237,19 +243,19 @@
 						die("Connection to Database Failed!!!"."<br>");
 					}
 
-					$sqlCmd = "INSERT INTO uploadedimage (userId,imagePath,uploadDate) VALUES ('$userId','$imagePath','$date')";
+					$sqlCmd = "INSERT INTO userprofile (userId,profilePic,camera,contact) VALUES ('$userId','$profilePic','$camera','$contact')";
 
 					if($conn->query($sqlCmd)===true)
 					{
-						$_SESSION['lastUpload'] = true;
-						echo "<h1>image insertion successful</h1>";
+						
+						echo "<h1>Profile Edited Successfully!!!</h1>";
 						
 					}
 
 					else
 					{
-						$_SESSION['lastUpload'] = false;
-						echo "<h1>image insertion unsuccessful</h1>";
+						
+						echo "<h1>Profile Editing Unsuccessful!!!</h1>";
 
 					}    
 
@@ -271,31 +277,21 @@
           <div class="col-md-12">
 
 
-                <h3>UPLOAD IMAGE</h3>
-              <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"
-			      class="dropzone"
-			      id="my-awesome-dropzone">				
-			      <input type="submit" id="clickToUpload" value="clickToUpload">
-			  </form>			  
-			
-			  <!--
-			  <h3>UPLOAD Preview Version IMAGE</h3>
-              <form action="upload-prev.php"
-			      class="dropzone"
-			      id="my-awesome-dropzone">
 
-					
-			  </form>
-			  
-			  <h3>UPLOAD Thumbnail Version IMAGE</h3>
-              <form action="upload-thumb.php"
-			      class="dropzone"
-			      id="my-awesome-dropzone">
+			  <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" enctype="multipart/form-data">
+   			  
+		   			  Select Profile Image to Upload:
+		    		  <input type="file" name="profilePicture" id="profilePicture"><br>
 
-					
+		    		  Enter Your Camera-name&model:
+		    		  <input type="text" name="camera" id="camera"><br>
+
+		    		  Enter Your Contact Number:
+		    		  <input type="text" name="contact" id="contact"><br>
+
+		    		  <input type="submit" value="Upload " name="submit">
+
 			  </form>
-			  
-              -->
 
             </div>
 
