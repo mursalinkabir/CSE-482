@@ -102,16 +102,12 @@
 
           </div>  
           <div class="collapse navbar-collapse">
+<ul class="nav navbar-nav">
 
-
-
-            <ul class="nav navbar-nav">
-
-              <li class="dropdown ">
+              <li class="dropdown">
                 <a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Home</a>
-                <ul class="dropdown-menu animated fadeInDown animated-300ms">
-
-                 <li>
+                <ul class="dropdown-menu">
+                  <li>
                     <a href="photosharing-home.php">Home</a>
                   </li>
                   <li>
@@ -124,22 +120,14 @@
                 </ul>
               </li>
               <li class="dropdown">
-                <a href="portfolio.html" class="dropdown-toggle" data-toggle="dropdown">Portfolio</a>
+                <a href="photosharing-portfolio.php" class="dropdown-toggle" data-toggle="dropdown">Portfolio</a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a href="portfolio-4c.php">View Portfolio</a>
+                    <a href="photosharing-portfolio.php">View Portfolio</a>
                   </li>
                   <li>
-                    <a href="portfolio-4c.php">Modify Portfolio</a>
-                  </li>
-                  <li>
-                    <a href="portfolio-4c.php">Publish Portfolio</a>
-                  </li>
-
-                  <li>
-                    <a href="portfolio-4c.php">Single Portfolio</a>
-                  </li>
-
+                    <a href="photosharing-portfolio.php">Modify Portfolio</a>
+                  </li>                 
                 </ul>
               </li>
 
@@ -159,10 +147,10 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pictures</a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a href="photosharing-qupload.php">Quick Upload</a>
+                    <a href="photosharing-uploader.php">Quick Upload</a>
                   </li>
                   <li>
-                    <a href="photosharing-albumUpload.php">Album Upload</a>
+                    <a href="photosharing-albumUpload.php">Album Management</a>
                   </li>
                   <li>
                     <a href="gallery-implementation.php">Gallery</a>
@@ -202,7 +190,7 @@
             </ul>
 
             <form class="navbar-search pull-right" role="search">
-              <input type="text" class="search-query" placeholder="Search">
+              <input type="text" class="search-query" placeholder="Search For User">
             </form>
 
           </div>

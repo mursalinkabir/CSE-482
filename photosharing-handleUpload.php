@@ -49,16 +49,10 @@
 
 	<!-- Modernizr is used by some jQuery plugins -->
 	<script src="js/modernizr.custom.js"></script>
+	<!--Uploader Plugin -->
+	<script src="js/dropzone.js"></script>
+	<link rel="stylesheet" href="css/dropzone.css" />
 
-<!-- Gallery implementation Uimports-->
-<link href="includes/gallery.css" rel="stylesheet" type="text/css" />
-<link href="includes/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="includes/jquery-1.5.min.js"></script>
-<script type="text/javascript" src="includes/farinspace/jquery.imgpreload.min.js"></script>
-
-<script type="text/javascript" src="includes/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.js"></script>
-
-<script type="text/javascript" src="includes/gallery.js"></script>
 
 
 	<!-- Fav and touch icons -->
@@ -81,6 +75,7 @@
 
 
 			<!-- Top Navigation Begin ==================================================================================-->
+
 			<div id="poshnav-half-width">
 				<div class="navbar navbar-inverse" >
 
@@ -188,80 +183,83 @@
 
 				</div>
 			</div>
-
+			
 			<!-- Top Navigation End ====================================================================================-->
 
 
 
 
 
-      <section id='contact-main'>
+     <!-- <section id='contact-main'>
           
        
-
-
-<div class="gallery_top"></div>
-<div class="gallery_content">
-<div class="gallery_thumbnails">
-<?php 
-
-
-$dir = "images/thumb/*.jpg";
-$dir2 = "images/full/*.jpg";
-
-$thumb = glob($dir);
-$full = glob($dir2);
-
-
-for( $i=0;$i<count($thumb); $i++) 
-	{
-		
-		echo "<a  href=\"$full[$i]  \"   title=\"Caption Goes her for Image\"><img src=\"$thumb[$i]\" width=\"75\" height=\"75\" alt=\"\"/></a>";
-	}
-
-
-
-?>
-  <div class="clear_both"></div>
-</div>
-<div class="gallery_preview" style="display : block;">
-	<a class="overlaylink" href="images/photos/refraction_fullsize.jpg" title="Caption Goes her for Refraction" style="background-image:url(images/photos/refraction_preview.jpg);"></a>
-</div>
-<div class="clear_both"></div>
-<div class="gallery_contact">Text</div>
-<div class="gallery_caption">Text</div>
-<div class="clear_both"></div>
-<div class="gallery_preload_area">
-	<img src="images/photos/acrobats_preview.jpg"/>
-</div>
-</div>
-
-<div class="gallery_bottom"></div>
          
+        <h1> <b class="emph">Upload Successful!!!</b></h1>
         
-              
+          
+         <div class="row">
+          <div class="">
+          <div class="col-md-12">
+           
+                <h3>UPLOAD FUll Version IMAGE</h3>
+              <form action="upload.php"
+			      class="dropzone"
+			      id="my-awesome-dropzone">				
 
-        
+			  </form><br><br><br>
+			  
+			  <input type="submit" id="clickToUpload" value="clickToUpload">
+			  <!--
+			  <h3>UPLOAD Preview Version IMAGE</h3>
+              <form action="upload-prev.php"
+			      class="dropzone"
+			      id="my-awesome-dropzone">
+
+					
+			  </form>
+			  
+			  <h3>UPLOAD Thumbnail Version IMAGE</h3>
+              <form action="upload-thumb.php"
+			      class="dropzone"
+			      id="my-awesome-dropzone">
+
+					
+			  </form>
+			  
+            
+
+            </div>
 
 
           </div>
           
            </div>
-        </section>
+        </section> 
+		  -->
 
-
-        
-
-
-        
-
-
-
-
-
-
-
+		 <?php
+			
+			$ds = DIRECTORY_SEPARATOR;  //1
+ 
+			$storeFolder = 'images/full';   //2
+ 
+			if (!empty($_FILES)) 
+			{
+     
+    			$tempFile = $_FILES['file']['tmp_name'];          //3             
       
+    			$targetPath = dirname( __FILE__ ) . $ds. $storeFolder . $ds;  //4
+     
+    			$targetFile =  $targetPath. $_FILES['file']['name'];  //5
+ 
+    			move_uploaded_file($tempFile,$targetFile); //6
+
+    			echo  "<h1> <b class=\"emph\">Upload Successful!!!</b></h1>";
+     
+			}
+		?>     
+
+
 
 
 
@@ -272,192 +270,6 @@ for( $i=0;$i<count($thumb); $i++)
 			<footer>
 
 
-				<!-- Continuous Headers visible only in large screens -->
-				<div class="row footer-header-wrapper visible-lg visible-md">
-					<div class="row footer-header">
-						<div class="col-md-3">
-							Categories
-						</div>
-
-						<div class="col-md-3">
-							Flickr Stream
-						</div>
-
-						<div class="col-md-3">
-							Recent Tweets
-						</div>
-
-						<div class="col-md-3">
-							Contact us
-						</div>
-
-					</div>
-
-				</div>
-
-				<div class="row" id='footer-body'>
-
-					<div class="col-md-3 col-sm-12">
-
-						<!-- Footer Section header, only visible in small screens. -->
-						<div class="row footer-header-collapse">
-							<div class="row footer-header">
-								<div class="col-md-3">
-									Categories
-								</div>
-							</div>
-						</div>
-
-						<!-- Categories -->
-						<div class="row footer-section-body" id='footer-categories'>
-							<ul>
-								<li>
-									<a href="#">Learn HTML & CSS</a>
-								</li>
-								<li>
-									<a href="#">Teach Yourself Coding </a>
-								</li>
-								<li>
-									<a href="#">Knowled of PHP</a>
-								</li>
-								<li>
-									<a href="#">Custom Coding</a>
-								</li>
-								<li>
-									<a href="#">Full Size Documentation </a>
-								</li>
-							</ul>
-
-						</div>
-					</div>
-
-					<div class="col-md-3">
-
-						<!-- Footer Section header, only visible in small screens. -->
-						<div class="row footer-header-collapse">
-							<div class="row footer-header">
-								<div class="col-md-3">
-									Flickr Stream
-								</div>
-							</div>
-						</div>
-						<div class="row footer-section-body">
-
-
-							<!-- Flickr Images are loaded by the jFlickrFeed plugin -->
-							<div id="flickrImages"></div>  
-
-
-						</div>
-					</div>
-
-					<div class="col-md-3" id='footer-tweeter-feed'>
-
-						<!-- Footer Section header, only visible in small screens. -->
-						<div class="row footer-header-collapse">
-							<div class="row footer-header">
-								<div class="col-md-3">
-									Recent tweets
-								</div>
-							</div>
-						</div>
-						<div class="row footer-section-body">
-
-							<ul>
-								<li>
-
-									<div class="media">
-										<a class="pull-left" href="#"><i class="icon-twitter icon-2x"></i></a>
-										<div class="media-body">
-											<h4 class="media-heading">@LorenIpsum</h4>
-											<p>
-												<a href="https://twitter.com">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a>
-											</p>
-										</div>
-									</div>
-
-								</li>
-
-								<li>
-
-									<div class="media">
-										<a class="pull-left" href="#"> <i class="icon-twitter icon-2x"></i></a>
-										<div class="media-body">
-											<h4 class="media-heading">@DolorAmet</h4>
-											<p>
-												<a href="https://twitter.com">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a>
-											</p>
-										</div>
-									</div>
-
-								</li>
-							</ul>
-
-						</div>
-					</div>
-
-					<div class="col-md-3">
-
-						<!-- Footer Section header, only visible in small screens. -->
-						<div class="row footer-header-collapse">
-							<div class="row footer-header">
-								<div class="col-md-3">
-									Contact Us
-								</div>
-							</div>
-						</div>
-						<div class="row footer-section-body">
-
-							<form>
-
-								<input type='text' placeholder='Name'>
-								<input type='text' placeholder='Email'>
-								<textarea type='text' placeholder='Message'></textarea>
-								<button class='pull-right'>
-									Send
-								</button>
-							</form>
-
-						</div>
-					</div>
-
-				</div>
-
-				<div class="row" id='footer-bottom'>
-
-					<div class="col-md-6" id='footer-bottom-left'>
-
-						<span id='footer-brand'>Codehound </span> &copy; 2013 All rights reserved
-
-					</div>
-
-					<div class="col-md-6 hidden-xs hidden-sm">
-						<nav>
-							<ul class="breadcrumb">
-								<li>
-									<a href="#">Home</a>
-								</li>
-								<li>
-									<a href="#">About </a>
-								</li>
-								<li>
-									<a href="#">Contact </a>
-								</li>
-								<li>
-									<a href="#">Services </a>
-								</li>
-
-								<li>
-									<a href="#">Blog </a>
-								</li>
-
-							</ul>
-
-						</nav>
-
-					</div>
-
-				</div>
 
 			</footer>
 			<!-- Main Footer End =======================================================================================-->
@@ -472,8 +284,8 @@ for( $i=0;$i<count($thumb); $i++)
 	<!-- Scripts =======================================================================================================-->
 
 
-	<!-- Basics // <script src="js/slider/jquery-1.7.1.min.js"></script> -->
-	
+	<!-- Basics -->
+	<script src="js/slider/jquery-1.7.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 
 	<!-- used by some plugins -->

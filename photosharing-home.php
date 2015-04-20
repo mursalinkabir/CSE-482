@@ -165,22 +165,14 @@
 								</ul>
 							</li>
 							<li class="dropdown">
-								<a href="portfolio.html" class="dropdown-toggle" data-toggle="dropdown">Portfolio</a>
+								<a href="photosharing-portfolio.php" class="dropdown-toggle" data-toggle="dropdown">Portfolio</a>
 								<ul class="dropdown-menu">
 									<li>
-										<a href="portfolio-4c.php">View Portfolio</a>
+										<a href="photosharing-portfolio.php">View Portfolio</a>
 									</li>
 									<li>
-										<a href="portfolio-4c.php">Modify Portfolio</a>
-									</li>
-									<li>
-										<a href="portfolio-4c.php">Publish Portfolio</a>
-									</li>
-
-									<li>
-										<a href="portfolio-4c.php">Single Portfolio</a>
-									</li>
-
+										<a href="photosharing-portfolio.php">Modify Portfolio</a>
+									</li>									
 								</ul>
 							</li>
 
@@ -200,10 +192,10 @@
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Pictures</a>
 								<ul class="dropdown-menu">
 									<li>
-										<a href="photosharing-qupload.php">Quick Upload</a>
+										<a href="photosharing-uploader.php">Quick Upload</a>
 									</li>
 									<li>
-										<a href="photosharing-albumUpload.php">Album Upload</a>
+										<a href="photosharing-albumUpload.php">Album Management</a>
 									</li>
 									<li>
 										<a href="gallery-implementation.php">Gallery</a>
