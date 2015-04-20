@@ -96,19 +96,11 @@
                 <h3>UPLOAD FUll Version IMAGE</h3>
               <form action="upload.php"
 			      class="dropzone"
-<<<<<<< HEAD
-			      id="my-awesome-dropzone">				
-			      <input type="submit" id="clickToUpload" value="clickToUpload">
-			  </form>			  
-			
-			  <!--
-=======
 			      id="my-awesome-dropzone">
 
 					
 			  </form>
 			  
->>>>>>> origin/master
 			  <h3>UPLOAD Preview Version IMAGE</h3>
               <form action="upload-prev.php"
 			      class="dropzone"
